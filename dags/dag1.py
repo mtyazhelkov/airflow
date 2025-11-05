@@ -25,3 +25,5 @@ task1=BashOperator(
 )
 
 task1
+
+print('this is for test')
