@@ -19,11 +19,17 @@ dag = DAG('get_currates',
           )
 #'0 1 * * *'
 task1=BashOperator(
+    task_id='task1',
+    bash_command='python3 /airflow/scripts/dag1/task1.py',
+    dag=dag
+)
+
+task2=BashOperator(
     task_id='task2',
     bash_command='python3 /airflow/scripts/dag1/task2.py',
     dag=dag
 )
 
-task1
+task1>>task2
 
 print('this is for test')
